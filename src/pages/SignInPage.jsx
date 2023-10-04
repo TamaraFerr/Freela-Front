@@ -1,24 +1,21 @@
 import styled from "styled-components"
-import Entrar from "../assets/Entre.svg"
+import Welcome from "../assets/welcome.svg"
 
-export default function SignUpPage(){
+export default function SignInPage(){
     return(
         <Container>
             <LeftBarr>
-                <img src={Entrar} alt="cadastro"/>
-                <h1>Cadastre-se e venha aproveitar o melhor site de modelos felinos do mundo!</h1>
+                <img src={Welcome} alt="Meowcome!"/>
+                <h1>Bem-vindo ao nosso lindo site de Meowdelos! Entre e aproveite cada segundo!</h1>
             </LeftBarr>
 
             <RightBarr>
                 <Form>
-                    <Input placeholder="Nome"/>
-                    <Input placeholder="E-mail"/>
-                    <Input placeholder="Senha"/>
-                    <Input placeholder="CPF"/>
-                    <Input placeholder="Telefone"/>
-                    <Button>Cadastrar</Button>
+                    <Input placeholder="E-mail" type="text"/>
+                    <Input placeholder="Senha" type="password"/>
+                    <Button>Entrar</Button>
                 </Form>
-                <p>Já possui uma conta? Faça o login!</p>
+                <p>Não possui uma conta? Cadastre-se!</p>
             </RightBarr>
         </Container>
     )
@@ -36,14 +33,10 @@ const Container = styled.div`
 const LeftBarr = styled.div`
     width: 500px;
     margin-left: 35px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
     & img{
-        width: 400px;
-        height: 300px;
+        width: 500px;
+        height: 200px;
     }
 
     & h1{
@@ -85,7 +78,7 @@ const Button = styled.button`
 
 const RightBarr = styled.div`
     width: 500px;
-    height: 500px;
+    height: 400px;
     background-color:#D8BFD8;
     border-radius: 20px;
     margin-right: 35px;
