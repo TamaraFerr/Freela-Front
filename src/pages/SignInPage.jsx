@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Welcome from "../assets/welcome.svg"
+import { Link } from "react-router-dom"
 
 export default function SignInPage(){
     return(
@@ -11,11 +12,13 @@ export default function SignInPage(){
 
             <RightBarr>
                 <Form>
-                    <Input placeholder="E-mail" type="text"/>
-                    <Input placeholder="Senha" type="password"/>
+                    <Input placeholder="E-mail" type="email" required/>
+                    <Input placeholder="Senha" type="password" required/>
                     <Button>Entrar</Button>
                 </Form>
-                <p>Não possui uma conta? Cadastre-se!</p>
+                <Link to={"/cadastro"}>
+                    <p>Não possui uma conta? Cadastre-se!</p>
+                </Link>
             </RightBarr>
         </Container>
     )
@@ -24,7 +27,7 @@ export default function SignInPage(){
 const Container = styled.div`
     width: 100%;
     height: 100vh;
-    background-color: #F0F8FF;
+    background-color: #FAFAD2;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,7 +54,7 @@ const Form = styled.form`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 350px;
 `
 
 const Input = styled.input`
@@ -67,19 +70,28 @@ const Input = styled.input`
 const Button = styled.button`
     width: 100%;
     height: 40px;
-    border: 1px solid #E6E6FA;
-    background-color: 	#E6E6FA;
+    border: 1px solid #F0E68C;
+    background-color: #FFC869;
     border-radius: 8px;
     margin-bottom: 15px;
     font-family: 'Mulish', sans-serif;
     font-weight: 500;
     font-size: 15px;
+    color: #f6f6f6;
+    cursor: pointer;
+    transition: all 100ms;
+    &:hover{
+        color: #f6f6f6;
+        background-color: #FFC547;
+        border: 1px solid #FFC869;
+    }
 `
 
 const RightBarr = styled.div`
-    width: 500px;
+    width: 450px;
     height: 400px;
-    background-color:#D8BFD8;
+    background-color:	#FFE4B5;
+    border: 1px solid #F0E68C;
     border-radius: 20px;
     margin-right: 35px;
     display: flex;
