@@ -10,27 +10,29 @@ export default function HomePage(){
             <LeftBarr>
                 <Menu />
             </LeftBarr>
-            <Models>
-                <h1>Modelos Disponíveis</h1>
-                <Link to={"/modelo-info"}>
-                    <Image src={Gatinho} alt="gatinho.png"/>
-                </Link>
-                <Link to={"/modelo-info"}>
-                    <Image src={Gatinho} alt="gatinho.png"/>
-                </Link>
-                <Link to={"/modelo-info"}>
-                    <Image src={Gatinho} alt="gatinho.png"/>
-                </Link>
-                <Link to={"/modelo-info"}>
-                    <Image src={Gatinho} alt="gatinho.png"/>
-                </Link>
-                <Link to={"/modelo-info"}>
-                    <Image src={Gatinho} alt="gatinho.png"/>
-                </Link>
-                <Link to={"/modelo-info"}>
-                    <Image src={Gatinho} alt="gatinho.png"/>
-                </Link>
-            </Models>
+            <Body>
+                <Models>
+                    <h1>Modelos Disponíveis</h1>
+                    <Link to={"/modelo-info"}>
+                        <Image src={Gatinho} alt="gatinho.png"/>
+                    </Link>
+                    <Link to={"/modelo-info"}>
+                        <Image src={Gatinho} alt="gatinho.png"/>
+                    </Link>
+                    <Link to={"/modelo-info"}>
+                        <Image src={Gatinho} alt="gatinho.png"/>
+                    </Link>
+                    <Link to={"/modelo-info"}>
+                        <Image src={Gatinho} alt="gatinho.png"/>
+                    </Link>
+                    <Link to={"/modelo-info"}>
+                        <Image src={Gatinho} alt="gatinho.png"/>
+                    </Link>
+                    <Link to={"/modelo-info"}>
+                        <Image src={Gatinho} alt="gatinho.png"/>
+                    </Link>
+                </Models>
+            </Body>
         </Container>
     )
 }
@@ -74,6 +76,11 @@ const Image = styled.img`
 
 const LeftBarr = styled.div`
     position: fixed;
-    margin-top: 150px;
+    margin-top: 15%;
     margin-left: 25px;
+`
+
+const Body = styled.div`
+    margin-top: 40px;
+    margin-bottom: 40px;
 `

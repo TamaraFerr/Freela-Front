@@ -1,16 +1,18 @@
 import styled from "styled-components"
 import Gatinho from "../assets/gatinho.jpg"
-import { mainColor, ModelBorder, ButtonHoover } from "../colors/Colors"
+import { mainColor, ModelBorder, secondaryColor } from "../colors/Colors"
 import Menu from "../components/Menu"
 
 export default function ModelsPage(){
     return(
         <Container>
-            <LeftBarr>
+            <LeftBarr> 
                 <Menu />
             </LeftBarr>
             <Body>
-                <Title>Gerencie seus meowdelos!</Title>
+                <Title>
+                    <p>Gerencie seus meowdelos!</p>
+                </Title>
                 <Model>
                     <Profile>
                         <img src={Gatinho} alt="gatinho.png" />
@@ -131,14 +133,23 @@ const Body = styled.div`
 `
 
 const Title = styled.p`
-    font-family: 'Mulish', sans-serif;
-    font-size: 35px;
-    font-weight: 700;
-    font-style: italic;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    margin-left: 30px;
-    color: #000000;
+    margin-top: 5%;
+    margin-bottom: 10px;
+    background-color: ${mainColor};
+    border: 2px solid ${ModelBorder};
+    border-radius: 50px;
+
+    & p{
+        font-family: 'Mulish', sans-serif;
+        font-size: 35px;
+        font-weight: 700;
+        font-style: italic;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        margin-left: 30px;
+        color: #FF6C0D;
+    }
+    
 `
 
 const Model = styled.div`
@@ -203,6 +214,6 @@ const Available = styled.div`
 `
 const LeftBarr = styled.div`
     position: fixed;
-    margin-top: 150px;
+    margin-top: 15%;
     margin-left: 25px;
 `

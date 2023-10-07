@@ -37,7 +37,7 @@ const Container = styled.div`
 
 const LeftBarr = styled.div`
     width: 500px;
-    margin-left: 45px;
+    margin-left: 10%;
 
     & img{
         width: 500px;
@@ -95,7 +95,7 @@ const RightBarr = styled.div`
     background-color: ${secondaryColor};
     border: 1px solid ${Borders};
     border-radius: 20px;
-    margin-right: 45px;
+    margin-right: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;

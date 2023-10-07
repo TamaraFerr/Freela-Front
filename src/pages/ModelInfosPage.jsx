@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import Gatinho from "../assets/gatinho.jpg"
-import { ModelBorder, Buttons, ButtonHoover, Borders, secondaryColor, mainColor } from "../colors/Colors"
-import HomePage from "./HomePage"
-import { useState } from "react"
+import { ModelBorder, Buttons, ButtonHoover, Borders, secondaryColor } from "../colors/Colors"
 import { Link } from "react-router-dom"
 
 
@@ -31,7 +29,7 @@ const Body = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("https://thumb.ac-illust.com/83/83917e6aa60173d4cbbb1b548c510039_t.jpeg");
+    background-image: url("https://i.pinimg.com/736x/9b/fb/74/9bfb743648adf4ff0751b52b13f415cd.jpg");
 `
 
 const Container = styled.div`

@@ -36,7 +36,7 @@ const Body = styled.div`
     flex-direction: column;
     margin: 0 auto;
     box-sizing: border-box;
-    padding-top: 50px;
+    padding-top: 10%;
 `
 
 const Form = styled.form`
@@ -94,6 +94,6 @@ const Button = styled.button`
 
 const LeftBarr = styled.div`
     position: fixed;
-    margin-top: 150px;
+    margin-top: 15%;
     margin-left: 25px;
 `
