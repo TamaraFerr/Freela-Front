@@ -17,6 +17,7 @@ export default function SignUpPage(){
                     <Input placeholder="Nome" type="text" required/>
                     <Input placeholder="E-mail" type="email" required/>
                     <Input placeholder="Senha" type="password" required/>
+                    <Input placeholder="Confirme sua senha" required/>
                     <Input placeholder="CPF" type="text" required/>
                     <Input placeholder="Telefone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
                     <Button>Cadastrar</Button>
