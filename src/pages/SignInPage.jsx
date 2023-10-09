@@ -1,10 +1,34 @@
 import styled from "styled-components"
 import Welcome from "../assets/welcome.svg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { mainColor, secondaryColor, Borders, Buttons, ButtonHoover } from "../colors/Colors"
+import AuthContext from "../contexts/AuthContext"
+import { useContext, useState } from "react"
+import axios from "axios"
 
 
 export default function SignInPage(){
+    const {setToken} = useContext(AuthContext)
+    const [form, setForm] = useState({email: "", password: ""})
+    const navigate = useNavigate()
+
+    function handleForm(e){
+        setForm({...form, [e.target.name]: e.target.value})
+    }
+
+    function formSubmit(e){
+        e.preventDefault()
+        
+        axios.post(`${import.meta.env.VITE_API_URL}/signin`, form)
+        .then(res => {
+        setToken(res.data.token)
+        localStorage.setItem("token", res.data.token)
+        navigate("/home")
+        console.log(res.data)
+        })
+        .catch(err => alert(err.response.data))
+    }
+
     return(
         <Container>
             <LeftBarr>
@@ -13,11 +37,30 @@ export default function SignInPage(){
             </LeftBarr>
 
             <RightBarr>
-                <Form>
-                    <Input placeholder="E-mail" type="email" required/>
-                    <Input placeholder="Senha" type="password" required/>
-                    <Button>Entrar</Button>
+                <Form onSubmit={formSubmit}>
+                    <Input 
+                    placeholder="E-mail" 
+                    type="email" 
+                    onChange={handleForm}
+                    name="email"
+                    value={form.email}
+                    required
+                    />
+
+                    <Input 
+                    placeholder="Senha" 
+                    type="password" 
+                    minLength={3}
+                    autoComplete="new-password" 
+                    onChange={handleForm}
+                    name="password"
+                    value={form.password}
+                    required
+                    />
+
+                    <Button type="submit">Entrar</Button>
                 </Form>
+
                 <Link to={"/cadastro"}>
                     <p>Não possui uma conta? Cadastre-se!</p>
                 </Link>

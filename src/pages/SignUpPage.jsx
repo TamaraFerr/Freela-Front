@@ -1,10 +1,35 @@
 import styled from "styled-components"
 import Entrar from "../assets/Entre.svg"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { mainColor, secondaryColor, Borders, Buttons, ButtonHoover } from "../colors/Colors"
+import axios from "axios"
+import { useState } from "react"
 
 
 export default function SignUpPage(){
+    const [form, setForm] = useState({name: "", email: "", password: "", confirmPassword: "", cpf: "", phone: ""})
+    const navigate = useNavigate()
+  
+    function handleForm(e){
+        setForm({...form, [e.target.name]: e.target.value})
+    }
+  
+    function formSubmit(e){
+        e.preventDefault() 
+      
+        if(form.password !== form.confirmPassword){
+            alert("Senhas incorretas")
+            return
+        }
+  
+        delete form.confirmPassword
+
+        axios.post(`${import.meta.env.VITE_API_URL}/signup`, form)
+        .then(res => navigate("/"))
+        .catch(err => alert(err.response.data))
+    }
+  
+
     return(
         <Container>
             <LeftBarr>
@@ -13,14 +38,66 @@ export default function SignUpPage(){
             </LeftBarr>
 
             <RightBarr>
-                <Form>
-                    <Input placeholder="Nome" type="text" required/>
-                    <Input placeholder="E-mail" type="email" required/>
-                    <Input placeholder="Senha" type="password" required/>
-                    <Input placeholder="Confirme sua senha" required/>
-                    <Input placeholder="CPF" type="text" required/>
-                    <Input placeholder="Telefone" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
-                    <Button>Cadastrar</Button>
+                <Form onSubmit={formSubmit}>
+                    <Input 
+                    placeholder="Nome" 
+                    type="text" 
+                    onChange={handleForm}
+                    value={form.name}
+                    name="name"
+                    required
+                    />
+
+                    <Input 
+                    placeholder="E-mail" 
+                    type="email" 
+                    onChange={handleForm}
+                    value={form.email}
+                    name="email"
+                    required
+                    />
+
+                    <Input 
+                    placeholder="Senha" 
+                    type="password" 
+                    minLength={3}
+                    autoComplete="new-password" 
+                    onChange={handleForm}
+                    value={form.password}
+                    name="password"
+                    required
+                    />
+                    
+                    <Input 
+                    placeholder="Confirme sua senha" 
+                    type="password"
+                    minLength={3}
+                    autoComplete="new-password" 
+                    onChange={handleForm}
+                    value={form.confirmPassword}
+                    name="confirmPassword"
+                    required
+                    />
+
+                    <Input 
+                    placeholder="CPF" 
+                    type="text" 
+                    onChange={handleForm}
+                    value={form.cpf}
+                    name="cpf"
+                    required
+                    />
+
+                    <Input 
+                    placeholder="Telefone" 
+                    type="tel"  
+                    onChange={handleForm}
+                    value={form.phone}
+                    name="phone"
+                    required
+                    />
+
+                    <Button type="submit">Cadastrar</Button>
                 </Form>
                 <Link to={"/"}>
                     <p>Já possui uma conta? Faça o login!</p>
